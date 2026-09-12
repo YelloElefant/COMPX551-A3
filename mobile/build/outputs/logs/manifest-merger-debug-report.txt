@@ -106,7 +106,7 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/yell
 		ADDED from /Users/yelloelefant/Downloads/WearCompanion/mobile/src/main/AndroidManifest.xml:5:9-35
 	android:theme
 		ADDED from /Users/yelloelefant/Downloads/WearCompanion/mobile/src/main/AndroidManifest.xml:8:9-47
-activity#nz.ac.waikato.companion.MainActivity
+activity#yelloelefant.companion.MainActivity
 ADDED from /Users/yelloelefant/Downloads/WearCompanion/mobile/src/main/AndroidManifest.xml:10:9-18:20
 	android:label
 		ADDED from /Users/yelloelefant/Downloads/WearCompanion/mobile/src/main/AndroidManifest.xml:13:13-45
@@ -124,7 +124,7 @@ category#android.intent.category.LAUNCHER
 ADDED from /Users/yelloelefant/Downloads/WearCompanion/mobile/src/main/AndroidManifest.xml:16:17-77
 	android:name
 		ADDED from /Users/yelloelefant/Downloads/WearCompanion/mobile/src/main/AndroidManifest.xml:16:27-74
-service#nz.ac.waikato.companion.data.PhoneWearableListenerService
+service#yelloelefant.companion.data.PhoneWearableListenerService
 ADDED from /Users/yelloelefant/Downloads/WearCompanion/mobile/src/main/AndroidManifest.xml:26:9-37:19
 	android:exported
 		ADDED from /Users/yelloelefant/Downloads/WearCompanion/mobile/src/main/AndroidManifest.xml:28:13-36
@@ -324,7 +324,7 @@ ADDED from [androidx.core:core:1.13.1] /Users/yelloelefant/.gradle/caches/9.3.0/
 		ADDED from [androidx.core:core:1.13.1] /Users/yelloelefant/.gradle/caches/9.3.0/transforms/4a6dd57b158bb5880c65f1f8dfa97f53/transformed/core-1.13.1/AndroidManifest.xml:24:9-44
 	android:name
 		ADDED from [androidx.core:core:1.13.1] /Users/yelloelefant/.gradle/caches/9.3.0/transforms/4a6dd57b158bb5880c65f1f8dfa97f53/transformed/core-1.13.1/AndroidManifest.xml:23:9-81
-permission#nz.ac.waikato.companion.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+permission#yelloelefant.companion.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
 ADDED from [androidx.core:core:1.13.1] /Users/yelloelefant/.gradle/caches/9.3.0/transforms/4a6dd57b158bb5880c65f1f8dfa97f53/transformed/core-1.13.1/AndroidManifest.xml:22:5-24:47
 	android:protectionLevel
 		ADDED from [androidx.core:core:1.13.1] /Users/yelloelefant/.gradle/caches/9.3.0/transforms/4a6dd57b158bb5880c65f1f8dfa97f53/transformed/core-1.13.1/AndroidManifest.xml:24:9-44
@@ -334,7 +334,7 @@ uses-permission#${applicationId}.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
 ADDED from [androidx.core:core:1.13.1] /Users/yelloelefant/.gradle/caches/9.3.0/transforms/4a6dd57b158bb5880c65f1f8dfa97f53/transformed/core-1.13.1/AndroidManifest.xml:26:5-97
 	android:name
 		ADDED from [androidx.core:core:1.13.1] /Users/yelloelefant/.gradle/caches/9.3.0/transforms/4a6dd57b158bb5880c65f1f8dfa97f53/transformed/core-1.13.1/AndroidManifest.xml:26:22-94
-uses-permission#nz.ac.waikato.companion.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+uses-permission#yelloelefant.companion.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
 ADDED from [androidx.core:core:1.13.1] /Users/yelloelefant/.gradle/caches/9.3.0/transforms/4a6dd57b158bb5880c65f1f8dfa97f53/transformed/core-1.13.1/AndroidManifest.xml:26:5-97
 	android:name
 		ADDED from [androidx.core:core:1.13.1] /Users/yelloelefant/.gradle/caches/9.3.0/transforms/4a6dd57b158bb5880c65f1f8dfa97f53/transformed/core-1.13.1/AndroidManifest.xml:26:22-94

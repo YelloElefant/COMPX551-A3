@@ -1,4 +1,4 @@
-nz.ac.waikato.companion
+yelloelefant.companion
 attr alpha
 attr buttonSize
 attr circleCrop

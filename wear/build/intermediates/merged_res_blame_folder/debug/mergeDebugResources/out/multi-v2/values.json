@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "nz.ac.waikato.companion.wear-mergeDebugResources-51:/values/values.xml",
+            "outputFile": "yelloelefant.companion.wear-mergeDebugResources-51:/values/values.xml",
             "map": [
                 {
                     "source": "/Users/yelloelefant/.gradle/caches/9.3.0/transforms/30f1e202e24b20c1a8e5de5dd1a5f401/transformed/lifecycle-viewmodel-release/res/values/values.xml",
