@@ -1,4 +1,4 @@
-package nz.ac.waikato.companion.data
+package yelloelefant.companion.data
 
 import android.util.Log
 import com.google.android.gms.wearable.DataEvent
@@ -6,9 +6,9 @@ import com.google.android.gms.wearable.DataEventBuffer
 import com.google.android.gms.wearable.DataMapItem
 import com.google.android.gms.wearable.MessageEvent
 import com.google.android.gms.wearable.WearableListenerService
-import nz.ac.waikato.companion.shared.AccelCodec
-import nz.ac.waikato.companion.shared.HeartRateSample
-import nz.ac.waikato.companion.shared.WearPaths
+import yelloelefant.companion.shared.AccelCodec
+import yelloelefant.companion.shared.HeartRateSample
+import yelloelefant.companion.shared.WearPaths
 
 /**
  * Phone-side receiver for both Data Layer transports.

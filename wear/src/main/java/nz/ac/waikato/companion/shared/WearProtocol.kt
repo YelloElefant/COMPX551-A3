@@ -1,4 +1,4 @@
-package nz.ac.waikato.companion.shared
+package yelloelefant.companion.shared
 
 import java.nio.ByteBuffer
 import java.nio.ByteOrder

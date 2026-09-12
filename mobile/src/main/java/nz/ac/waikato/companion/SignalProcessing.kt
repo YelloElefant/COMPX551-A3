@@ -1,4 +1,4 @@
-package nz.ac.waikato.companion
+package yelloelefant.companion
 
 import kotlin.math.abs
 import kotlin.math.sqrt

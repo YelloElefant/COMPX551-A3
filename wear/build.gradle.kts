@@ -5,12 +5,12 @@ plugins {
 }
 
 android {
-    namespace = "nz.ac.waikato.companion.wear"
+    namespace = "yelloelefant.companion.wear"
     compileSdk = 35
 
     defaultConfig {
         // Same applicationId as :mobile - see note there.
-        applicationId = "nz.ac.waikato.companion"
+        applicationId = "yelloelefant.companion"
         minSdk = 30            // Wear OS 3+, required for Health Services
         targetSdk = 34
         versionCode = 1

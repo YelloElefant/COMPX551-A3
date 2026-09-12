@@ -1,4 +1,4 @@
-package nz.ac.waikato.companion.ui
+package yelloelefant.companion.ui
 
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.layout.Box

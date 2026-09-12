@@ -1,4 +1,4 @@
-package nz.ac.waikato.companion.wear
+package yelloelefant.companion.wear
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
@@ -8,8 +8,8 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.launch
-import nz.ac.waikato.companion.shared.AccelSample
-import nz.ac.waikato.companion.shared.HrAvailability
+import yelloelefant.companion.shared.AccelSample
+import yelloelefant.companion.shared.HrAvailability
 import kotlin.math.sqrt
 
 data class WearUiState(

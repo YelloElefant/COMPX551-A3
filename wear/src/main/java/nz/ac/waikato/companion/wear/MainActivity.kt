@@ -1,4 +1,4 @@
-package nz.ac.waikato.companion.wear
+package yelloelefant.companion.wear
 
 import android.Manifest
 import android.os.Bundle
@@ -21,7 +21,7 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.wear.compose.material.MaterialTheme
 import androidx.wear.compose.material.Text
-import nz.ac.waikato.companion.shared.HrAvailability
+import yelloelefant.companion.shared.HrAvailability
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

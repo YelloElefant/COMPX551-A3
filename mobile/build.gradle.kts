@@ -5,13 +5,13 @@ plugins {
 }
 
 android {
-    namespace = "nz.ac.waikato.companion"
+    namespace = "yelloelefant.companion"
     compileSdk = 35
 
     defaultConfig {
         // MUST be identical to the wear module's applicationId.
         // That is how the platform knows these two APKs are one logical app.
-        applicationId = "nz.ac.waikato.companion"
+        applicationId = "yelloelefant.companion"
         minSdk = 26
         targetSdk = 35
         versionCode = 1

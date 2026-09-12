@@ -1,11 +1,11 @@
-package nz.ac.waikato.companion.data
+package yelloelefant.companion.data
 
 import kotlinx.coroutines.channels.BufferOverflow
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.flow.asSharedFlow
-import nz.ac.waikato.companion.shared.AccelBatch
-import nz.ac.waikato.companion.shared.HeartRateSample
+import yelloelefant.companion.shared.AccelBatch
+import yelloelefant.companion.shared.HeartRateSample
 
 /**
  * The join point between the WearableListenerService and the UI.

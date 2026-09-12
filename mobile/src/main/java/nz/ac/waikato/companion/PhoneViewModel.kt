@@ -1,4 +1,4 @@
-package nz.ac.waikato.companion
+package yelloelefant.companion
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
@@ -7,8 +7,8 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
-import nz.ac.waikato.companion.data.SensorRepository
-import nz.ac.waikato.companion.shared.HrAvailability
+import yelloelefant.companion.data.SensorRepository
+import yelloelefant.companion.shared.HrAvailability
 
 data class MotionUiState(
     val trace: FloatArray = FloatArray(0),   // filtered linear magnitude, oldest first

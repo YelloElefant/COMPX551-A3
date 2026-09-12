@@ -1,4 +1,4 @@
-package nz.ac.waikato.companion
+package yelloelefant.companion
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -24,9 +24,9 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
-import nz.ac.waikato.companion.shared.HrAvailability
-import nz.ac.waikato.companion.ui.HeartRateGauge
-import nz.ac.waikato.companion.ui.LineChart
+import yelloelefant.companion.shared.HrAvailability
+import yelloelefant.companion.ui.HeartRateGauge
+import yelloelefant.companion.ui.LineChart
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

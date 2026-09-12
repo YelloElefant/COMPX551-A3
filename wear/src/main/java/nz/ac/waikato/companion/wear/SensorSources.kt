@@ -1,4 +1,4 @@
-package nz.ac.waikato.companion.wear
+package yelloelefant.companion.wear
 
 import android.content.Context
 import android.hardware.Sensor
@@ -16,9 +16,9 @@ import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.callbackFlow
 import kotlinx.coroutines.guava.await
-import nz.ac.waikato.companion.shared.AccelSample
-import nz.ac.waikato.companion.shared.HeartRateSample
-import nz.ac.waikato.companion.shared.HrAvailability
+import yelloelefant.companion.shared.AccelSample
+import yelloelefant.companion.shared.HeartRateSample
+import yelloelefant.companion.shared.HrAvailability
 
 // flows give a sorta blueprint function for a model or activity to call and run in the background
 fun accelerometerFlow(

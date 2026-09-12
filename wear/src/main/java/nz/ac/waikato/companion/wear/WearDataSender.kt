@@ -1,4 +1,4 @@
-package nz.ac.waikato.companion.wear
+package yelloelefant.companion.wear
 
 import android.content.Context
 import android.util.Log
@@ -6,8 +6,8 @@ import com.google.android.gms.wearable.Node
 import com.google.android.gms.wearable.PutDataMapRequest
 import com.google.android.gms.wearable.Wearable
 import kotlinx.coroutines.tasks.await
-import nz.ac.waikato.companion.shared.AccelSample
-import nz.ac.waikato.companion.shared.WearPaths
+import yelloelefant.companion.shared.AccelSample
+import yelloelefant.companion.shared.WearPaths
 
 
 // global datasender bit, 2 sending methods one for heartrate and one for acceleromter
@@ -51,7 +51,7 @@ class WearDataSender(context: Context) {
     // takes a list of accelromter smaples and sends then to the phone, returns fail boolean
     suspend fun sendAccelBatch(samples: List<AccelSample>): Boolean {
         if (samples.isEmpty()) return false
-        val payload = nz.ac.waikato.companion.shared.AccelCodec
+        val payload = yelloelefant.companion.shared.AccelCodec
             .encode(System.currentTimeMillis(), samples)
 
         val nodes = connectedNodes()
