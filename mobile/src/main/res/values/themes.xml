@@ -1,0 +1,4 @@
+<resources>
+    <!-- Compose draws everything; we only need a no-action-bar shell. -->
+    <style name="Theme.Companion" parent="android:Theme.Material.Light.NoActionBar" />
+</resources>
