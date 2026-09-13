@@ -7,21 +7,8 @@ import kotlinx.coroutines.flow.asSharedFlow
 import yelloelefant.companion.shared.AccelBatch
 import yelloelefant.companion.shared.HeartRateSample
 
-/**
- * The join point between the WearableListenerService and the UI.
- *
- * Why an object (process singleton)? The listener service is started by the
- * Data Layer on its own schedule, in the same process as the Activity but with
- * no reference to it. A process-scoped singleton is the simplest correct way
- * for the two to meet.
- *
- * The honest caveat, and a fair code-review question: this is in-memory only.
- * If Android kills the process, buffered data is gone, and data that arrives
- * while the app is dead only restarts the service, it does not restore history.
- * A production build would persist to Room or DataStore in the service and let
- * the UI observe the database instead. For a live-visualisation assignment,
- * keeping it in memory is a deliberate scope decision, not an oversight.
- */
+// the join between the listener and the front end,
+// holds all in memory just latest thing
 object SensorRepository {
 
     /**

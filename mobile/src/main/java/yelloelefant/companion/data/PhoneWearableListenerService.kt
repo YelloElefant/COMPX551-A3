@@ -10,15 +10,9 @@ import yelloelefant.companion.shared.AccelCodec
 import yelloelefant.companion.shared.HeartRateSample
 import yelloelefant.companion.shared.WearPaths
 
-/**
- * Phone-side receiver for both Data Layer transports.
- *
- * Using a WearableListenerService rather than registering listeners in the
- * Activity means data still arrives when the phone UI is not in the
- * foreground - the Data Layer starts this service to deliver. The cost is that
- * these callbacks run on a background thread with a short budget, so the only
- * job here is decode-and-hand-off. No processing, no blocking, no UI.
- */
+// this handles the data sent from the watch
+// onMessage for the acceleromter stuff
+// onData for the heartrate stuff, then moves them all to the sensor repo same as last assemsent
 class PhoneWearableListenerService : WearableListenerService() {
 
     override fun onMessageReceived(event: MessageEvent) {
