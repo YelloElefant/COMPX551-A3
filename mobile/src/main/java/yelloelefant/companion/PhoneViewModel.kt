@@ -10,6 +10,7 @@ import kotlinx.coroutines.launch
 import yelloelefant.companion.data.SensorRepository
 import yelloelefant.companion.shared.HrAvailability
 
+
 data class MotionUiState(
     val trace: FloatArray = FloatArray(0),   // filtered linear magnitude, oldest first
     val latest: Float = 0f,
@@ -17,7 +18,6 @@ data class MotionUiState(
     val max: Float = 0f,
     val mean: Float = 0f,
     val standardDeviation: Float = 0f,
-    val peakCount: Int = 0,
     val samplesReceived: Long = 0L,
     val lastBatchAtMs: Long = 0L
 ) {
@@ -27,12 +27,11 @@ data class MotionUiState(
         if (this === other) return true
         if (other !is MotionUiState) return false
         return samplesReceived == other.samplesReceived &&
-            peakCount == other.peakCount &&
             latest == other.latest
     }
 
     override fun hashCode(): Int =
-        samplesReceived.hashCode() * 31 + peakCount * 31 + latest.hashCode()
+        samplesReceived.hashCode() * 31 + latest.hashCode()
 }
 
 data class HeartRateUiState(
@@ -46,25 +45,13 @@ data class HeartRateUiState(
     val lastUpdateMs: Long = 0L
 )
 
-/**
- * Part D and the data half of Part E.
- *
- * Each data type gets its own pipeline because each one has different
- * properties. The accelerometer is fast, noisy and vector valued, so it needs
- * dimensionality reduction, filtering and event detection. Heart rate is slow,
- * already smoothed by the watch firmware and scalar, so it needs mild
- * smoothing and classification, nothing more. Applying the same processing to
- * both would be cargo culting.
- */
+// model for the phone part, this takes the readings from the repo (after the listener)
+// does all the calculations to them and pushes to the front end
 class PhoneViewModel(app: Application) : AndroidViewModel(app) {
 
     // ---- motion pipeline state ----
     private val motionFilter = LowPassFilter(alpha = MOTION_ALPHA)
     private val motionStats = RollingStats(windowSize = MOTION_WINDOW)
-    private val peakDetector = PeakDetector(
-        threshold = PEAK_THRESHOLD_MS2,
-        refractoryMs = 250L
-    )
     private var samplesReceived = 0L
 
     // ---- heart rate pipeline state ----
@@ -98,7 +85,6 @@ class PhoneViewModel(app: Application) : AndroidViewModel(app) {
                 val linear = Kinematics.linearMagnitude(sample.x, sample.y, sample.z)
                 val filtered = motionFilter.next(linear)
                 motionStats.add(filtered)
-                peakDetector.update(filtered, sample.timestampMs)
             }
             samplesReceived += batch.samples.size
 
@@ -109,7 +95,6 @@ class PhoneViewModel(app: Application) : AndroidViewModel(app) {
                 max = motionStats.max,
                 mean = motionStats.mean,
                 standardDeviation = motionStats.standardDeviation,
-                peakCount = peakDetector.count,
                 samplesReceived = samplesReceived,
                 lastBatchAtMs = batch.sentAtMs
             )
@@ -143,24 +128,12 @@ class PhoneViewModel(app: Application) : AndroidViewModel(app) {
         }
     }
 
-    fun resetPeaks() {
-        peakDetector.reset()
-        _motion.value = _motion.value.copy(peakCount = 0)
-    }
-
     private companion object {
         /** ~2 Hz corner at 50 Hz sampling. Keeps gait, drops MEMS hash. */
         const val MOTION_ALPHA = 0.2f
 
         /** 250 samples at 50 Hz = a 5 second statistics window. */
         const val MOTION_WINDOW = 250
-
-        /**
-         * 2.0 m/s^2 above/below gravity. Empirical: a deliberate wrist flick
-         * or a footstep clears it comfortably, typing or breathing does not.
-         * Tune this live on the emulator and say so in the review.
-         */
-        const val PEAK_THRESHOLD_MS2 = 2.0f
 
         const val HR_ALPHA = 0.35f
 

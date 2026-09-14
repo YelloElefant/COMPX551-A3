@@ -30,6 +30,7 @@ class WearViewModel(app: Application) : AndroidViewModel(app) {
     private val sender = WearDataSender(app)
 
     private val _uiState = MutableStateFlow(WearUiState())
+    //  double definition to restrict front end to read only of the data
     val uiState: StateFlow<WearUiState> = _uiState.asStateFlow()
 
     // batch the accelromter, this sensor updates fast so shouldnt send a full frame per reading

@@ -3,6 +3,10 @@ package yelloelefant.companion
 import kotlin.math.abs
 import kotlin.math.sqrt
 
+
+
+// all verified with kotlin playground
+
 /**
  * Part D lives here: small, testable, allocation-free processing primitives.
  *
@@ -96,54 +100,6 @@ class RollingStats(private val windowSize: Int) {
         val out = FloatArray(windowSize)
         for (i in 0 until windowSize) out[i] = buffer[(head + i) % windowSize]
         return out
-    }
-}
-
-/**
- * Threshold-crossing peak detector with hysteresis and a refractory period.
- *
- * Naive "value > threshold" counts one event per sample while the signal sits
- * high, and chatters madly right at the threshold. Two fixes, both borrowed
- * from how you would debounce a physical switch:
- *
- *  1. Hysteresis - arm on rising above [threshold], only re-arm after the
- *     signal falls back below [threshold] * [releaseRatio]. A Schmitt trigger.
- *  2. Refractory period - ignore new peaks for [refractoryMs] after one fires.
- *     Walking cadence tops out around 3 steps/second, so 250 ms cannot
- *     discard a real step but does discard the ringing after one.
- */
-class PeakDetector(
-    private val threshold: Float,
-    private val refractoryMs: Long = 250L,
-    private val releaseRatio: Float = 0.6f
-) {
-    private var armed = true
-    private var lastPeakMs = 0L
-    var count = 0
-        private set
-
-    /** @return true if this sample is the leading edge of a new peak. */
-    fun update(value: Float, timestampMs: Long): Boolean {
-        val magnitude = abs(value)
-
-        if (armed && magnitude > threshold &&
-            timestampMs - lastPeakMs >= refractoryMs
-        ) {
-            armed = false
-            lastPeakMs = timestampMs
-            count++
-            return true
-        }
-        if (!armed && magnitude < threshold * releaseRatio) {
-            armed = true
-        }
-        return false
-    }
-
-    fun reset() {
-        armed = true
-        lastPeakMs = 0L
-        count = 0
     }
 }
 

@@ -73,6 +73,9 @@ class WearDataSender(context: Context) {
 
     // send persistent data/retain message, updates local sql server which is synced between
     // phone and watch by android. setUrgently makes it not wait for changed as android lkes todo
+    // adding timestamp bypasses androids data api hashing system to force it to send even if
+    // nothing changes, this allows the phones stats to be acurate if the heartrate never changes
+    // over a period of time
     suspend fun sendHeartRate(bpm: Float, availability: Int) {
         val request = PutDataMapRequest.create(WearPaths.HEART_RATE_ITEM).apply {
             dataMap.putFloat(WearPaths.KEY_BPM, bpm)

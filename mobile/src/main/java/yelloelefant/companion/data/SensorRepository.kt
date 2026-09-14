@@ -9,13 +9,15 @@ import yelloelefant.companion.shared.HeartRateSample
 
 // the join between the listener and the front end,
 // holds all in memory just latest thing
+// listener is controlled by android model is controlled by activity, this bridges them
+// allow 1 to block of stop without hurting the other
 object SensorRepository {
 
     /**
      * extraBufferCapacity + DROP_OLDEST is the important bit. If the UI is
      * mid-recomposition when three batches land, we would rather bin the
      * oldest than suspend the Data Layer callback thread - that thread
-     * blocking is how you end up with ANRs in a listener service.
+     * blocking is how you end up with applications not responding in a listener service.
      */
     private val _accelBatches = MutableSharedFlow<AccelBatch>(
         replay = 0,

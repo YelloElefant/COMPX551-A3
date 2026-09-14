@@ -43,6 +43,8 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 private fun PhoneScreen(viewModel: PhoneViewModel = viewModel()) {
+    // only colect data when the screen is open the by keyword colects latest value and puts into
+    // the varable (auto unpack like js)
     val motion by viewModel.motion.collectAsStateWithLifecycle()
     val hr by viewModel.heartRate.collectAsStateWithLifecycle()
 
@@ -84,18 +86,6 @@ private fun PhoneScreen(viewModel: PhoneViewModel = viewModel()) {
                     StatColumn("max", motion.max)
                     StatColumn("mean", motion.mean)
                     StatColumn("sd", motion.standardDeviation)
-                }
-
-                Row(
-                    modifier = Modifier.fillMaxWidth(),
-                    horizontalArrangement = Arrangement.SpaceBetween,
-                    verticalAlignment = Alignment.CenterVertically
-                ) {
-                    Text(
-                        "peaks detected: ${motion.peakCount}",
-                        style = MaterialTheme.typography.bodyMedium
-                    )
-                    OutlinedButton(onClick = viewModel::resetPeaks) { Text("Reset") }
                 }
             }
         }

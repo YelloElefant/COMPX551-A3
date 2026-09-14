@@ -7,10 +7,7 @@ import java.nio.ByteOrder
  * The wire contract between the watch app and the phone app.
  *
  * This file is byte-for-byte identical in both modules (same package name, so
- * the two copies never diverge in a way the compiler hides from you). In a
- * bigger project this would be its own `:shared` Kotlin library module, but
- * for a two-module assignment duplicating one small file is honest and keeps
- * the Gradle setup readable.
+ * the two copies never diverge in a way the compiler hides from you).
  */
 object WearPaths {
     /** High-frequency accelerometer batches -> MessageClient (fire and forget). */
@@ -73,9 +70,6 @@ object HrAvailability {
  *   [8..11]  int32  count               number of samples that follow
  *   [12..]   float32 x, y, z  * count   sample values, oldest first
  *
- * Per-sample timestamps are reconstructed on the phone from sentAtMs and the
- * nominal sampling period, which is plenty for smoothing and stats and saves
- * 8 bytes a sample. If you needed exact jitter you would send deltas instead.
  */
 object AccelCodec {
 
